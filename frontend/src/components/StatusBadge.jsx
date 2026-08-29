@@ -7,7 +7,7 @@ export default function StatusBadge() {
 
   useEffect(() => {
     let cancelled = false;
-    getHealth()
+    const check = () => getHealth()
       .then((data) => {
         if (cancelled) return;
         setStatus(data.status === "ok" ? "online" : "error");
@@ -16,8 +16,11 @@ export default function StatusBadge() {
       .catch(() => {
         if (!cancelled) setStatus("offline");
       });
+    check();
+    const timer = setInterval(check, 8000);
     return () => {
       cancelled = true;
+      clearInterval(timer);
     };
   }, []);
 
