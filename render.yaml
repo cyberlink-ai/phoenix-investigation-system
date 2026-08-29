@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: phoenix-investigation-api
+    runtime: docker
+    rootDir: backend
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: ENV
+        value: production
+      - key: ALLOWED_ORIGINS
+        sync: false

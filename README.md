@@ -114,3 +114,22 @@ Fly.io. Set `VITE_API_BASE_URL` in Vercel to the HTTPS URL of the deployed
 backend, and set `ALLOWED_ORIGINS` on the backend to your exact Vercel URL.
 The frontend cannot perform long-running OpenCV processing by itself, so it
 must remain paired with the backend service.
+
+### 1. Vercel: website
+
+Import the GitHub repository in Vercel and select `frontend` as the **Root
+Directory**. Vercel will detect Vite and use the included `vercel.json`.
+After deploying the backend in step 2, add `VITE_API_BASE_URL` as an
+Environment Variable with the backend's public URL, then redeploy the Vercel
+project.
+
+### 2. Render: video-processing API
+
+Create a new **Blueprint** in Render from the same repository. The included
+`render.yaml` creates the Docker-based API using `backend/`. When Render asks
+for `ALLOWED_ORIGINS`, enter your exact Vercel site URL, for example
+`https://phoenix-investigation-system.vercel.app`.
+
+The free Render tier can sleep and its local files may be cleared on restart.
+For a reliable live demo, re-upload video before presenting or attach a
+persistent disk / migrate uploads to object storage.
