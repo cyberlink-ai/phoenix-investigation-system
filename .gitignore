@@ -1,0 +1,23 @@
+# --- Python / backend ---
+__pycache__/
+*.pyc
+.venv/
+venv/
+backend/.env
+*.egg-info/
+
+# --- Node / frontend ---
+node_modules/
+frontend/dist/
+frontend/.env
+
+# --- Video/data files (large, don't commit to git) ---
+data/sample_videos/*
+!data/sample_videos/.gitkeep
+
+# --- OS / editor ---
+.DS_Store
+.vscode/
+.idea/
+# Local video uploads and processing metadata
+data/runtime/

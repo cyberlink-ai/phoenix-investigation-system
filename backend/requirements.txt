@@ -1,0 +1,28 @@
+# --- Core API ---
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+pydantic==2.9.2
+pydantic-settings==2.5.2
+python-dotenv==1.0.1
+python-multipart==0.0.9
+
+# --- Database ---
+supabase==2.7.4
+
+# --- Graph / reasoning (Investigation Path Planner) ---
+networkx==3.3
+numpy==1.26.4
+
+# --- Computer Vision ---
+# opencv-python-headless (not opencv-python): this runs on a server with no
+# display, so the GUI-dependent build is unnecessary weight/dependency risk.
+opencv-python-headless==4.10.0.84
+
+# --- Real-vehicle detection/classification + ANPR (not installed yet) ---
+# The current Vision Agent (app/agents/vision_agent.py) uses a working
+# OpenCV background-subtraction motion detector as an interim stand-in for
+# YOLO - see app/cv/detection.py for why. Uncomment these and swap in a
+# YOLO-based detector once real traffic footage is available to justify the
+# multi-GB PyTorch download:
+# ultralytics==8.3.0
+# easyocr==1.7.2
