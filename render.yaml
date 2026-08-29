@@ -9,4 +9,4 @@ services:
       - key: ENV
         value: production
       - key: ALLOWED_ORIGINS
-        value: https://phoenix-investigation-system-p8wmqpecx.vercel.app
+        value: https://phoenix-investigation-system.vercel.app
